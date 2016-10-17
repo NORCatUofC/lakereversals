@@ -29,9 +29,13 @@ function gallonsPerStationSeries(data) {
     var years = {};
     var yearsList = [];
     // TODO: Change 2016 to current year to something more dynamic.
-    for (var year = 1985; year < 2016; year++) {
-        years[year] = 0;
-        yearsList.push(year);
+    for (var i = 0; i < data.length; i++) {
+        var year = parseInt(data[i].year);
+        if ($.inArray( year, yearsList) < 0) {
+            years[year] = 0;
+            yearsList.push(year);
+        }
+    
     }
 
     var stations = {
@@ -67,16 +71,3 @@ function gallonsPerStationSeries(data) {
     });
     return {series: retVal.reverse(), years: yearsList};
 }
-
-/*
-    series: [{
-        name: 'John',
-        data: [5, 3, 4, 7, 2]
-    }, {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1]
-    }, {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5]
-    }]
-*/

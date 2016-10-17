@@ -8,7 +8,7 @@ function drawGallonsPerYearChart(years, series) {
             type: 'bar'
         },
         title: {
-            text: 'Stacked bar chart'
+            text: 'Sewage Dumped per Station'
         },
         xAxis: {
             categories: years
@@ -16,7 +16,7 @@ function drawGallonsPerYearChart(years, series) {
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: 'Millions of Gallons'
             }
         },
         legend: {
