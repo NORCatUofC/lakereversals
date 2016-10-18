@@ -26,36 +26,41 @@ function showCounter(total) {
 }
 
 function gallonsPerStationSeries(data) {
-    var years = {};
     var yearsList = [];
-    // TODO: Change 2016 to current year to something more dynamic.
+    
     for (var i = 0; i < data.length; i++) {
         var year = parseInt(data[i].year);
         if ($.inArray( year, yearsList) < 0) {
-            years[year] = 0;
             yearsList.push(year);
         }
     
+    }
+    
+    var years = function(yearsList) {
+        yearsRet = {};
+        for (var y = 0; y < yearsList.length; y++) {
+            yearsRet[yearsList[y]] = 0;
+        }
+        return yearsRet;
     }
 
     var stations = {
         crcw: {
             name: 'Downtown',
-            years: years
+            years: years(yearsList)
         },
         obrien: {
             name: 'Calumette',
-            years: years
+            years: years(yearsList)
         },
         wilmette: {
             name: 'Wilmette',
-            years: years
+            years: years(yearsList)
         }
     };
 
     for (var i = 0; i < data.length; i++) {
         var event = data[i];
-
         stations['crcw']['years'][parseInt(event.year)] += parseFloat(event['crcw']);
         stations['obrien']['years'][parseInt(event.year)] += parseFloat(event['obrien']);
         stations['wilmette']['years'][parseInt(event.year)] += parseFloat(event['wilmette']);
