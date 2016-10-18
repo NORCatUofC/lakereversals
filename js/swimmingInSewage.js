@@ -14,7 +14,7 @@ function buildAndDisplayData(data) {
 
 function showCounter(total) {
 
-    var total_start = (total - 100000).toLocaleString();
+    var total_start = (total - 300000).toLocaleString();
 
     $('#theCounter').addClass('counter-analog').counter({
         initial: total_start,

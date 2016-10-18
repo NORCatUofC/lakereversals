@@ -3,12 +3,12 @@
 
 
 function drawGallonsPerYearChart(years, series) {
-    $('#container').highcharts({
+    $('#gallonsPerYearChart').highcharts({
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Sewage Dumped per Station'
+            text: 'Sewage Dumped per Year'
         },
         xAxis: {
             categories: years
