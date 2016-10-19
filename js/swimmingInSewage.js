@@ -14,7 +14,7 @@ function buildAndDisplayData(data) {
 
 function showCounter(total) {
 
-    var total_start = (total - 300000).toLocaleString();
+    var total_start = (total - 1000000).toLocaleString();
 
     $('#theCounter').addClass('counter-analog').counter({
         initial: total_start,
@@ -26,7 +26,7 @@ function showCounter(total) {
 }
 
 function gallonsPerStationSeries(data) {
-    var yearsList = [];
+    var yearsList = [2016];
     
     for (var i = 0; i < data.length; i++) {
         var year = parseInt(data[i].year);
@@ -35,7 +35,7 @@ function gallonsPerStationSeries(data) {
         }
     
     }
-    
+        
     var years = function(yearsList) {
         yearsRet = {};
         for (var y = 0; y < yearsList.length; y++) {
@@ -72,7 +72,9 @@ function gallonsPerStationSeries(data) {
         $.each(station.years, function (index, year) {
             series['data'].push(year);
         });
+        series['data'].reverse()
         retVal.push(series);
     });
-    return {series: retVal.reverse(), years: yearsList};
+
+    return {series: retVal, years: yearsList};
 }
